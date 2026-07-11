@@ -8,3 +8,6 @@ coverage/
 !.env.example
 worker/node_modules/
 .wrangler/
+
+.dev.vars*
+!.dev.vars.example
