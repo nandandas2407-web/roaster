@@ -4,6 +4,9 @@
 
 ### The Bureau of Unsolicited Code Opinions
 
+
+
+
 **Enter a GitHub username or submit your passion project. Get destroyed by AI. Then redeemed.**
 
 <br>
