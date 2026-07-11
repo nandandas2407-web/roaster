@@ -7,4 +7,5 @@ coverage/
 .env*
 !.env.example
 worker/node_modules/
+worker/sw.js
 .wrangler/
