@@ -603,7 +603,11 @@ export default function App() {
 
       if (!roastResponse.ok) {
         const errData = await roastResponse.json();
-        throw new Error(errData.error || "Gemini roasting engine failed.");
+        const errMsg = errData.error || "Gemini roasting engine failed.";
+        if (errMsg.includes("429") || errMsg.includes("quota") || errMsg.includes("RESOURCE_EXHAUSTED") || errMsg.includes("rate limit")) {
+          throw new Error("We are hitting too many requests than expected. Please try again later.");
+        }
+        throw new Error(errMsg);
       }
 
       const result: RoastResponse = await roastResponse.json();
@@ -681,7 +685,11 @@ export default function App() {
 
       if (!response.ok) {
         const errData = await response.json();
-        throw new Error(errData.error || "The roasting engine failed to process these materials.");
+        const errMsg = errData.error || "The roasting engine failed to process these materials.";
+        if (errMsg.includes("429") || errMsg.includes("quota") || errMsg.includes("RESOURCE_EXHAUSTED") || errMsg.includes("rate limit")) {
+          throw new Error("We are hitting too many requests than expected. Please try again later.");
+        }
+        throw new Error(errMsg);
       }
 
       const result = await response.json();
@@ -1859,12 +1867,12 @@ export default function App() {
         </p>
         <div className="flex justify-center gap-4">
           <a 
-            href="https://github.com" 
+            href="https://github.com/nandandas2407-web" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="text-xs font-mono text-ink/50 hover:text-roast-red transition-colors flex items-center gap-1"
           >
-            <Github className="w-3.5 h-3.5" /> GitHub Docs
+            <Github className="w-3.5 h-3.5" /> nandandas2407-web
           </a>
           <span className="text-ink/20 font-mono">|</span>
           <a 

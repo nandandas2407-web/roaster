@@ -142,7 +142,7 @@ Try roasting these popular developers:
 |---|---|
 | **Cloudflare Workers** | Serverless API backend (production) |
 | **Express 4** | Backend API server (local development) |
-| **Google Gemini 2.0 Flash** | AI-powered roast generation with structured JSON output |
+| **Google Gemini 3.5 Flash** | AI-powered roast generation with structured JSON output |
 | **GitHub REST API v3** | Fetching user profiles and repository data |
 
 ### APIs & Browser Features

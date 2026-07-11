@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="flame" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#D32F2F"/>
+      <stop offset="50%" style="stop-color:#E64A19"/>
+      <stop offset="100%" style="stop-color:#FF6F00"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="46" fill="#1a1a1a" stroke="#D32F2F" stroke-width="3"/>
+  <text x="50" y="38" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#D32F2F" text-anchor="middle" letter-spacing="1">ROAST</text>
+  <text x="50" y="62" font-family="Georgia, serif" font-size="26" font-weight="bold" fill="url(#flame)" text-anchor="middle">0</text>
+  <path d="M30 72 Q50 80 70 72" stroke="#FF6F00" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <circle cx="35" cy="44" r="2" fill="#FF6F00" opacity="0.6"/>
+  <circle cx="65" cy="44" r="2" fill="#FF6F00" opacity="0.6"/>
+</svg>
