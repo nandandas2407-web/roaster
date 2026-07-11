@@ -3,6 +3,21 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/api/github-data"
+  to = "/.netlify/functions/github-data"
+  status = 200
+
+[[redirects]]
+  from = "/api/roast"
+  to = "/.netlify/functions/roast"
+  status = 200
+
+[[redirects]]
+  from = "/api/roast-generic"
+  to = "/.netlify/functions/roast-generic"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
