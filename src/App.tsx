@@ -34,6 +34,8 @@ import { GitHubStats, RoastIntensity, RoastResponse, GenericDataSummary } from "
 import { downloadRoastCard } from "./utils/canvasHelper";
 import { synth } from "./utils/synth";
 
+const API_BASE = import.meta.env.VITE_API_URL || "";
+
 const POPULAR_DEVS = [
   { username: "torvalds", name: "Linus Torvalds" },
   { username: "gaearon", name: "Dan Abramov" },
@@ -579,7 +581,7 @@ export default function App() {
         await new Promise((resolve) => setTimeout(resolve, 2500));
         fetchedStats = getSampleStats("rusty-dev");
       } else {
-        const response = await fetch(`/api/github-data?username=${encodeURIComponent(cleanUser)}`);
+        const response = await fetch(`${API_BASE}/api/github-data?username=${encodeURIComponent(cleanUser)}`);
         
         if (!response.ok) {
           const errData = await response.json();
@@ -593,7 +595,7 @@ export default function App() {
       setFetchStage("Summoning the comedic elements...");
       
       // Request Roast from Gemini
-      const roastResponse = await fetch("/api/roast", {
+      const roastResponse = await fetch(`${API_BASE}/api/roast`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ stats: fetchedStats, intensity }),
@@ -665,7 +667,7 @@ export default function App() {
     }, 500);
 
     try {
-      const response = await fetch("/api/roast-generic", {
+      const response = await fetch(`${API_BASE}/api/roast-generic`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

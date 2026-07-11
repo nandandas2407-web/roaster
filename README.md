@@ -148,6 +148,7 @@ Create a `.env.local` file in the project root with the following variables:
 | `GEMINI_API_KEY` | Yes | Your Google Gemini API key for AI roast generation |
 | `APP_URL` | No | The URL where the app is hosted (used for self-referential links) |
 | `GITHUB_TOKEN` | No | GitHub personal access token to bypass API rate limits |
+| `VITE_API_URL` | No | Backend API URL for Cloudflare Worker (leave empty for same-origin) |
 
 Example `.env.local`:
 
@@ -196,17 +197,23 @@ roast-my-github/
 |-- package.json                  # Dependencies and scripts
 |-- tsconfig.json                 # TypeScript configuration
 |-- vite.config.ts                # Vite + Tailwind + React config
-|-- server.ts                     # Express backend with API routes
+|-- netlify.toml                  # Netlify build config
+|-- server.ts                     # Express backend (local dev)
 |-- .env.example                  # Environment variable template
 |-- assets/                       # Static assets
 |-- src/
 |   |-- main.tsx                  # React app entry point
-|   |-- App.tsx                   # Main application component (1880 lines)
+|   |-- App.tsx                   # Main application component
 |   |-- types.ts                  # TypeScript interfaces and types
 |   |-- index.css                 # Tailwind imports + custom animations
 |   |-- utils/
 |       |-- canvasHelper.ts       # HTML5 Canvas roast card generator
 |       |-- synth.ts              # Web Audio API sound synthesizer
+|-- worker/
+    |-- index.ts                  # Cloudflare Worker (production API)
+    |-- wrangler.toml             # Cloudflare Worker config
+    |-- package.json              # Worker dependencies
+    |-- tsconfig.json             # Worker TypeScript config
 ```
 
 ---
@@ -373,6 +380,96 @@ The downloadable roast card is rendered entirely on **HTML5 Canvas** (`src/utils
   - Footer attribution
 
 The card is exported as a PNG data URL and triggers a browser download.
+
+---
+
+## Deployment
+
+This app is split into two parts:
+- **Frontend** (React) -- deployed to **Netlify**
+- **Backend** (API) -- deployed to **Cloudflare Workers**
+
+### Deploy the Backend (Cloudflare Workers)
+
+1. **Install Wrangler CLI** (if not already installed):
+
+   ```bash
+   npm install -g wrangler
+   ```
+
+2. **Authenticate with Cloudflare**:
+
+   ```bash
+   wrangler login
+   ```
+
+3. **Install worker dependencies**:
+
+   ```bash
+   cd worker
+   npm install
+   ```
+
+4. **Set secret environment variables**:
+
+   ```bash
+   wrangler secret put GEMINI_API_KEY
+   wrangler secret put GITHUB_TOKEN
+   ```
+
+5. **Deploy the worker**:
+
+   ```bash
+   wrangler deploy
+   ```
+
+   Your worker will be available at: `https://roaster-api.<your-subdomain>.workers.dev`
+
+6. **Update `wrangler.toml`** with your Netlify domain:
+
+   ```toml
+   [vars]
+   ALLOWED_ORIGIN = "https://roaster0.netlify.app"
+   ```
+
+   Then re-deploy: `wrangler deploy`
+
+### Deploy the Frontend (Netlify)
+
+1. **Push your code to GitHub**:
+
+   ```bash
+   git add -A
+   git commit -m "Deploy frontend to Netlify"
+   git push origin main
+   ```
+
+2. **On Netlify**:
+   - Connect your GitHub repository
+   - Set build settings:
+     - **Build command:** `vite build`
+     - **Publish directory:** `dist`
+
+3. **Set environment variable** on Netlify:
+
+   | Key | Value |
+   |---|---|
+   | `VITE_API_URL` | `https://roaster-api.<your-subdomain>.workers.dev` |
+
+4. **Deploy** -- Netlify will build and deploy automatically.
+
+### Local Development
+
+For local development, the Express server handles both frontend and API:
+
+```bash
+npm install
+cp .env.example .env.local
+# Edit .env.local with your keys
+npm run dev
+```
+
+The app runs at `http://localhost:3000` with the Express backend proxying API calls.
 
 ---
 
