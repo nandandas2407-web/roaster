@@ -24,7 +24,7 @@
 
 ## What is roaster0?
 
-roaster0 is an AI-powered web application that roasts GitHub profiles and passion projects using Google's Gemini AI. It analyzes your public coding habits, repository data, language choices, and commit patterns to deliver savage, hyper-specific comedic critiques -- followed by a sincere, heartwarming compliment called **"The Toast."**
+roaster0 is  an AI-powered web application that roasts GitHub profiles and passion projects using Google's Gemini AI. It analyzes your public coding habits, repository data, language choices, and commit patterns to deliver savage, hyper-specific comedic critiques -- followed by a sincere, heartwarming compliment called **"The Toast."**
 
 The app features a distinctive **physical ledger paper aesthetic** with hand-coded SVG illustrations, procedural Web Audio sound effects, 3D card tilt interactions, and downloadable roast cards rendered on HTML5 Canvas.
 
