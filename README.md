@@ -15,7 +15,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-06B6D4?style=for-the-badge)
-![Gemini](https://img.shields.io/badge/Gemini-2.0-4285F4?style=for-the-badge)
+![Gemini](https://img.shields.io/badge/Gemini-3.5-4285F4?style=for-the-badge)
 
 <br>
 
