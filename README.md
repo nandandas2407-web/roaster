@@ -2,7 +2,7 @@
 
 # roaster0
 
-**A fun, AI-powered web app that roasts any GitHub profile or passion project with savage, hyper-specific humor -- then redeems it with a genuine, earned compliment.**
+**A fun,  AI-powered web app that roasts any GitHub profile or passion project with savage, hyper-specific humor -- then redeems it with a genuine, earned compliment.**
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue)
