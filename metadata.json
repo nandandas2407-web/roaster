@@ -1,5 +1,5 @@
 {
-  "name": "Roast My GitHub",
+  "name": "roaster0",
   "description": "Enter any public GitHub username and get a savage, hyper-specific AI-generated roast followed by an earned compliment.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

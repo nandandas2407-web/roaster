@@ -756,8 +756,8 @@ export default function App() {
       ? `🔥 MY GITHUB ROAST (${intensity} INTENSITY):` 
       : `🔥 MY PASSION ROAST (${intensity} INTENSITY):`;
     const attribution = isGitHub 
-      ? "Roast yours at Roast My GitHub!" 
-      : "Roast anything at Roast My GitHub / Roast Anything!";
+      ? "Roast yours at roaster0!" 
+      : "Roast anything at roaster0!";
 
     const shareText = `${title}\n\n` + 
       roastData.roast.map(line => `• "${line}"`).join("\n") + 

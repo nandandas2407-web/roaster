@@ -57,7 +57,7 @@ app.get("/api/github-data", async (req, res) => {
 
   try {
     const headers: HeadersInit = {
-      'User-Agent': 'roast-my-github-app',
+      'User-Agent': 'roaster0-app',
       'Accept': 'application/vnd.github.v3+json',
     };
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-# Roast My GitHub
+# roaster0
 
 **A fun, AI-powered web app that roasts any GitHub profile or passion project with savage, hyper-specific humor -- then redeems it with a genuine, earned compliment.**
 
@@ -38,7 +38,7 @@
 
 ## Overview
 
-Roast My GitHub is an interactive web application that leverages Google's Gemini AI to deliver savage, hyper-specific roasts based on a developer's public GitHub activity -- or any passion, project, or creative endeavor you throw at it. The app analyzes repository data, coding habits, language choices, and more to craft personalized comedic critiques, followed by a sincere, heartwarming compliment (called "The Toast").
+roaster0 is an interactive web application that leverages Google's Gemini AI to deliver savage, hyper-specific roasts based on a developer's public GitHub activity -- or any passion, project, or creative endeavor you throw at it. The app analyzes repository data, coding habits, language choices, and more to craft personalized comedic critiques, followed by a sincere, heartwarming compliment (called "The Toast").
 
 The app features a distinctive **physical ledger paper aesthetic** with hand-coded SVG illustrations, procedural Web Audio sound effects, 3D card tilt interactions, and downloadable roast cards rendered on HTML5 Canvas.
 
@@ -109,8 +109,8 @@ Visit the live app and try roasting a popular developer like `torvalds`, `gaearo
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/roast-my-github.git
-   cd roast-my-github
+   git clone https://github.com/nandandas2407-web/roaster.git
+   cd roaster
    ```
 
 2. **Install dependencies**
@@ -192,7 +192,7 @@ Runs TypeScript type checking with `tsc --noEmit`.
 ## Project Structure
 
 ```
-roast-my-github/
+roaster/
 |-- index.html                    # Entry HTML with page title
 |-- package.json                  # Dependencies and scripts
 |-- tsconfig.json                 # TypeScript configuration

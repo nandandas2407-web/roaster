@@ -178,7 +178,7 @@ export async function downloadRoastCard(payload: CardDownloadPayload): Promise<v
   // --- Draw Header ---
   ctx.fillStyle = colorInk;
   ctx.font = "900 38px 'Kanit', system-ui, -apple-system, sans-serif";
-  ctx.fillText(mode === "GITHUB" ? "ROAST MY GITHUB" : "ROAST ANYTHING", 80, 85);
+  ctx.fillText(mode === "GITHUB" ? "ROASTER0" : "ROASTER0", 80, 85);
 
   ctx.fillStyle = colorRoastRed;
   ctx.font = "bold 13px 'JetBrains Mono', monospace";
@@ -419,7 +419,7 @@ export async function downloadRoastCard(payload: CardDownloadPayload): Promise<v
   ctx.fillStyle = colorInk;
   ctx.globalAlpha = 0.4;
   ctx.font = "bold 10px 'JetBrains Mono', monospace";
-  ctx.fillText("OFFICIALLY FILED RECORD | ROAST MY GITHUB / ROAST ANYTHING", 80, footerY);
+  ctx.fillText("OFFICIALLY FILED RECORD | ROASTER0", 80, footerY);
 
   ctx.textAlign = "right";
   ctx.fillText("SCAN COMPLETED BY GEMINI 3.5 FLASH", width - 80, footerY);

@@ -35,7 +35,7 @@ async function handleGithubData(url, env, corsHeaders) {
   const username = url.searchParams.get("username");
   if (!username) return Response.json({ error: "Username is required" }, { status: 400, headers: corsHeaders });
 
-  const headers = { "User-Agent": "roast-my-github-app", "Accept": "application/vnd.github.v3+json" };
+  const headers = { "User-Agent": "roaster0-app", "Accept": "application/vnd.github.v3+json" };
   if (env.GITHUB_TOKEN) headers["Authorization"] = `token ${env.GITHUB_TOKEN}`;
 
   const userRes = await fetch(`https://api.github.com/users/${username}`, { headers });
