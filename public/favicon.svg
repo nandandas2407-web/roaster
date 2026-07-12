@@ -1,147 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
   <defs>
-    <filter id="soft-neumorphic" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="12" dy="16" stdDeviation="18" flood-color="#d6cebf" flood-opacity="0.9" result="dark-shadow"/>
-      <feDropShadow dx="-12" dy="-16" stdDeviation="18" flood-color="#ffffff" flood-opacity="1" in="SourceGraphic" result="light-shadow"/>
-      <feMerge>
-        <feMergeNode in="dark-shadow"/>
-        <feMergeNode in="light-shadow"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6A4D"/>
+      <stop offset="100%" stop-color="#E53935"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity=".12"/>
     </filter>
-
-    <!-- Aggressive inner glow for the flame -->
-    <filter id="flame-glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
-      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0.2 0 0 0 0  0 0 0 0 0  0 0 0 0.7 0" result="glow"/>
-      <feMerge>
-        <feMergeNode in="glow"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- Scorched earth texture -->
-    <filter id="scorched">
-      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/>
-      <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
-      <feBlend in="SourceGraphic" in2="gray" mode="multiply" result="textured"/>
-      <feComposite in="textured" in2="SourceGraphic" operator="in"/>
-    </filter>
-
-    <linearGradient id="chrome-bezel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="20%" stop-color="#c4bfb2"/>
-      <stop offset="45%" stop-color="#8a8478"/>
-      <stop offset="55%" stop-color="#c4bfb2"/>
-      <stop offset="80%" stop-color="#6b6559"/>
-      <stop offset="100%" stop-color="#3d3a33"/>
-    </linearGradient>
-
-    <radialGradient id="inner-well-depth" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="60%" stop-color="#e3ded6"/>
-      <stop offset="100%" stop-color="#9e9889"/>
-    </radialGradient>
-
-    <!-- Brutal flame gradient — deeper reds, hot orange -->
-    <linearGradient id="flame-grad" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#B71C1C"/>
-      <stop offset="35%" stop-color="#E53935"/>
-      <stop offset="65%" stop-color="#FF5722"/>
-      <stop offset="100%" stop-color="#FF9100"/>
-    </linearGradient>
-
-    <!-- Inner flame core — white hot -->
-    <linearGradient id="flame-core" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#FF6F00"/>
-      <stop offset="50%" stop-color="#FFAB00"/>
-      <stop offset="100%" stop-color="#FFECB3"/>
-    </linearGradient>
-
-    <linearGradient id="teal-accent" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1B5E4F"/>
-      <stop offset="100%" stop-color="#46bca6"/>
-    </linearGradient>
-
-    <!-- Charred black gradient for depth -->
-    <radialGradient id="charred" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#2a2520"/>
-      <stop offset="100%" stop-color="#0d0b09"/>
-    </radialGradient>
   </defs>
 
-  <!-- Grounding circular card plate (Neumorphic) -->
-  <rect x="40" y="40" width="432" height="432" rx="120" fill="#F2EDE4" filter="url(#soft-neumorphic)"/>
+  <!-- Background -->
+  <circle cx="256" cy="256" r="228"
+          fill="#F6F1E8"
+          stroke="#ECE2D4"
+          stroke-width="10"
+          filter="url(#shadow)"/>
 
-  <!-- Outer Bezel Ring — heavier, more metallic -->
-  <circle cx="256" cy="256" r="172" fill="url(#chrome-bezel)"/>
-  <circle cx="256" cy="256" r="163" fill="#111110"/>
-  <circle cx="256" cy="256" r="159" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.25"/>
+  <!-- Inner Ring -->
+  <circle cx="256" cy="256" r="194"
+          fill="none"
+          stroke="#DDD2C4"
+          stroke-width="2"
+          stroke-dasharray="6 8"/>
 
-  <!-- Inner Recessed Well -->
-  <circle cx="256" cy="256" r="155" fill="url(#inner-well-depth)"/>
-  <circle cx="256" cy="256" r="150" fill="#F2EDE4"/>
+  <!-- Center -->
+  <circle cx="256" cy="256" r="110"
+          fill="#FCF8F2"
+          stroke="#E9DFD1"
+          stroke-width="6"/>
 
-  <!-- Scorched calibration rings — burnt in -->
-  <circle cx="256" cy="256" r="130" fill="none" stroke="#B71C1C" stroke-width="2" stroke-dasharray="1 4" opacity="0.25"/>
-  <circle cx="256" cy="256" r="138" fill="none" stroke="#1A1A18" stroke-width="1.5" opacity="0.1"/>
-  <circle cx="256" cy="256" r="122" fill="none" stroke="#E53935" stroke-width="0.8" opacity="0.15"/>
+  <!-- R -->
+  <text x="256"
+        y="288"
+        text-anchor="middle"
+        font-family="Inter,Arial,sans-serif"
+        font-size="128"
+        font-weight="900"
+        fill="#1B1B1B">
+    R
+  </text>
 
-  <!-- Bureau Official Stamp — uppercase, aggressive tracking -->
-  <path id="text-path" d="M 148 256 A 108 108 0 0 1 364 256" fill="none" stroke="none"/>
-  <text font-family="'JetBrains Mono', monospace" font-size="12" font-weight="900" fill="#1A1A18" letter-spacing="5.5" opacity="0.4">
-    <textPath href="#text-path" startOffset="50%" text-anchor="middle">
-      BUREAU OF OPINIONS
+  <!-- Roast Accent -->
+  <path d="M330 160
+           C352 138 381 150 381 177
+           C381 201 360 214 340 226
+           C352 205 346 188 330 160Z"
+        fill="url(#g)"/>
+
+  <!-- Circular Text -->
+  <defs>
+    <path id="topArc"
+          d="M86 256
+             A170 170 0 0 1 426 256"/>
+
+    <path id="bottomArc"
+          d="M426 256
+             A170 170 0 0 1 86 256"/>
+  </defs>
+
+  <text font-family="JetBrains Mono, monospace"
+        font-size="18"
+        letter-spacing="5"
+        fill="#555">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+      ROASTER0
     </textPath>
   </text>
 
-  <!-- Central Masterpiece: Brutal 'R' with Burning Leg -->
-  <g transform="translate(0, -6)" filter="url(#flame-glow)">
-    <!-- Serif Top bar — sharper, more aggressive -->
-    <rect x="176" y="148" width="64" height="14" rx="1" fill="#1A1A18"/>
-
-    <!-- Main stem of 'R' — thicker, bolder -->
-    <path d="M 210 152 L 210 340" stroke="#1A1A18" stroke-width="28" stroke-linecap="square"/>
-
-    <!-- Serif Bottom bar — wider, more imposing -->
-    <rect x="172" y="332" width="72" height="14" rx="1" fill="#1A1A18"/>
-
-    <!-- Upper bowl of 'R' — more angular, brutalist -->
-    <path d="M 210 152 C 272 152 320 178 320 224 C 320 270 272 288 210 288" fill="none" stroke="#1A1A18" stroke-width="28" stroke-linecap="square" stroke-linejoin="miter"/>
-
-    <!-- THE BRUTAL FLAME LEG — larger, more aggressive, multiple layers -->
-    <!-- Outer flame body — deep red -->
-    <path d="M 238 278 
-             C 280 278, 340 308, 340 348 
-             C 340 364, 324 376, 308 376 
-             C 288 376, 274 356, 268 340 
-             C 254 312, 244 298, 230 284" 
-          fill="url(#flame-grad)" filter="url(#scorched)"/>
-
-    <!-- Inner flame core — white hot center -->
-    <path d="M 246 286
-             C 270 286, 312 306, 312 336
-             C 312 348, 300 356, 290 356
-             C 274 356, 264 340, 262 330
-             C 254 310, 248 298, 240 290"
-          fill="url(#flame-core)" opacity="0.85"/>
-
-    <!-- Teal accent inner lick -->
-    <path d="M 250 292
-             C 268 292, 300 308, 300 330
-             C 300 338, 292 344, 284 344
-             C 272 344, 264 332, 262 324
-             C 256 310, 252 300, 246 294"
-          fill="url(#teal-accent)" opacity="0.85"/>
-
-    <!-- Floating spark dots — embers -->
-    <circle cx="332" cy="172" r="9" fill="#E53935" opacity="0.9"/>
-    <circle cx="344" cy="186" r="5" fill="#FF5722" opacity="0.6"/>
-    <circle cx="326" cy="160" r="3.5" fill="#FF9100" opacity="0.5"/>
-  </g>
-
-  <!-- Underline typewriter mechanical indicator — heavier -->
-  <line x1="206" y1="388" x2="308" y2="388" stroke="#1A1A18" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
-  <circle cx="196" cy="388" r="4.5" fill="#E53935"/>
-  <circle cx="318" cy="388" r="3" fill="#FF5722" opacity="0.6"/>
+  <text font-family="JetBrains Mono, monospace"
+        font-size="15"
+        letter-spacing="4"
+        fill="#888">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">
+      BUREAU OF UNSOLICITED OPINIONS
+    </textPath>
+  </text>
 </svg>
